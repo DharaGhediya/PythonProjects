@@ -19,7 +19,7 @@ c.execute("""CREATE TABLE movies(
 many_records = [
     ('The Father', 'Anthony Hopkins', 'Olivia Colman', '2021', 'Florian Zeller'),
     ('Dune', 'Timothée Chalamet', 'Zendaya', '2021', 'Denis Villeneuve'),
-    ('Minari', 'Steven Yeun', 'Youn Yuh-jung', '2021', 'Lee Isaac Chung'),
+    ('Minari', 'Steven Yeun', 'Youn Yuh-jung', '2021', 'Lee Isaac Chung')
 ]
 c.executemany("INSERT INTO movies VALUES (?,?,?,?,?)", many_records)
 # we can insert only one record
