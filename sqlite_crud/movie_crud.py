@@ -4,10 +4,10 @@ import sqlite3
 conn = sqlite3.connect('movies.db')
 
 # create a cursor
-c = conn.cursor()
+cur = conn.cursor()
 
 # create a table
-c.execute("""CREATE TABLE movies(
+cur.execute("""CREATE TABLE movies(
         movie_name text,
         actor_name text,
         actress_name text,
@@ -21,27 +21,27 @@ many_records = [
     ('Dune', 'Timothée Chalamet', 'Zendaya', '2021', 'Denis Villeneuve'),
     ('Minari', 'Steven Yeun', 'Youn Yuh-jung', '2021', 'Lee Isaac Chung')
 ]
-c.executemany("INSERT INTO movies VALUES (?,?,?,?,?)", many_records)
+cur.executemany("INSERT INTO movies VALUES (?,?,?,?,?)", many_records)
 # we can insert only one record
-c.execute("INSERT INTO movies VALUES ('First Man', 'Ryan Gosling', 'Claire Foy', '2018', 'Damien Chazelle')")
+cur.execute("INSERT INTO movies VALUES ('First Man', 'Ryan Gosling', 'Claire Foy', '2018', 'Damien Chazelle')")
 
 # ###### Update records into the table ######
-'''c.execute("""UPDATE movies SET release_year='22 October 2021'
+'''cur.execute("""UPDATE movies SET release_year='22 October 2021'
     WHERE rowid = 2
     """) '''
 
 # #### Delete record into the table ####
-''' c.execute("DELETE from movies WHERE rowid=4") '''
+''' cur.execute("DELETE from movies WHERE rowid=4") '''
 
 # Drop table
-''' c.execute("DROP TABLE movies") '''
+''' cur.execute("DROP TABLE movies") '''
 
 # Query The Database
-c.execute("SELECT rowid, * FROM movies")
-# print(c.fetchone())
-# print(c.fetchmany(3))
+cur.execute("SELECT rowid, * FROM movies")
+# print(cur.fetchone())
+# print(cur.fetchmany(3))
 # fetch and print all records of the table
-items = c.fetchall()
+items = cur.fetchall()
 # print(items)
 for item in items:
     print(item)
