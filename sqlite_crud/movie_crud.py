@@ -12,7 +12,7 @@ c.execute("""CREATE TABLE movies(
         actor_name text,
         actress_name text,
         release_year text,
-        director_name
+        director_name text
     )""")
 
 # ####### insert record into table #######
